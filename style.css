@@ -87,7 +87,7 @@ margin: 0;
 font-size: 20px;
 font-family: 'Georgia', serif;
 color: black;
-margin-top: 8px;
+margin-top: 32px;
 line-height: 32px;
 }
 .section-text {
@@ -99,7 +99,7 @@ margin-top: 8px;
 
 /* Header and title styles moved from inline HTML */
 .site-header {
-	background: linear-gradient(90deg, #003a64 0%, #00a2ff 50%,#83c5ff 100%);
+	background: linear-gradient(90deg, #003a64 0%,#83c5ff 100%);
 	color: white;
 	padding: 16px;
 	font-family: Georgia, serif;
@@ -122,6 +122,9 @@ margin-top: 8px;
 	font-family: 'Georgia',  serif;
 	font-size: 40px;
 	padding: 16px 0;
+}
+.section-header.centered {
+	text-align: center;
 }
 .section-divider-top{
 	border: 0;
@@ -177,4 +180,42 @@ margin-top: 8px;
 }
 .contact-link:hover {
 	text-decoration: underline;
+}
+
+/* Project progress bars */
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  padding: 0 176px;
+}
+.project > * {
+  margin: 0;
+}
+.project-title {
+  flex-shrink: 0;
+  font-size: 24px;
+  font-family: Georgia, serif;
+  color: black;
+}
+.project .section-text {
+  margin: 8px;
+  flex-shrink: 0;
+}
+.progress-wrap {
+  width: 500px;
+  height: 20px;
+  background: #eeeeee;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #003a64, #00a2ff);
+  transition: width 1s ease;
 }

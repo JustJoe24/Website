@@ -8,17 +8,16 @@
   </head>
 
   <body>
-    <header class="site-header"><div class="inner">Background</div></header>
+    <header class="site-header"><div class="inner">Joseph | Progress Blog</div></header>
     <main class="main">
       <div class="layout">
         <div class="profile profile-slideshow" id="profile-slideshow">
           <img id="profile-image" src="images/profile.jpg" alt="Joseph Yu">
         </div>
         <div class="box">
-          <h2 class="section-title">Introduction</h2>
+          <h2 class="section-title">Hey I am Joe!</h2>
           <hr/>
-          <p class="intro-text">Hey I am Joe!
-            <br/><br/>
+          <p class="intro-text">
             I was born and raised in Johannesburg, South Africa, where I developed a strong sense of independence and curiosity about the world beyond my immediate surroundings. Since high school, I knew I wanted to study abroad to challenge myself and grow beyond what was familiar. Leaving South Africa alone after graduation pushed me to adapt quickly, embrace uncertainty, and build confidence through new experiences. <br/><br/>
           </p>
         </div>
@@ -28,26 +27,64 @@
     <hr class="section-divider-top"/>
     <header class="section-header"><div class="inner">Current Projects</div></header>
     <hr class="section-divider"/>
-    <p class="section-text bullet-dot">Project A — Non-profit Taiyaki business.</p>
-    <p class="section-text bullet-dot">Project B — Building a Macro Event impact Tracker</p>
-    <p class="section-text bullet-dot">Project C — Marathon Training</p>
+    
+    <div class="project">
+      <p class="section-text bullet-dot">Project 1 — Non-profit Taiyaki Business.</p>
+      <div class="progress-wrap" data-progress="10" aria-hidden="true">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+    <div class="project">
+      <p class="section-text bullet-dot">Project 2 — Building a Macro Event impact Tracker.</p>
+      <div class="progress-wrap" data-progress="5" aria-hidden="true">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+    <div class="project">
+      <p class="section-text bullet-dot">Project 3 — Marathon Training.</p>
+      <div class="progress-wrap" data-progress="60" aria-hidden="true">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
 
     <hr class="section-divider-top"/>
     <header class="section-header"><div class="inner">Current Learning</div></header>
     <hr class="section-divider"/>
-    <p class="section-text bullet-dot">Learning A — HTML and CSS.</p>
-    <p class="section-text bullet-dot">Learning B — Chess.</p>
-    <p class="section-text bullet-dot">Learning C — Bouldering.</p>
+    <div class="project">
+      <p class="section-text bullet-dot">Learning 1 — HTML and CSS.</p>
+      <div class="progress-wrap" data-progress="19" aria-hidden="true">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+    <div class="project">
+      <p class="section-text bullet-dot">Learning 2 — Chess.</p>
+      <div class="progress-wrap" data-progress="15" aria-hidden="true">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+    <div class="project">
+      <p class="section-text bullet-dot">Learning 3 — Bouldering.</p>
+      <div class="progress-wrap" data-progress="12" aria-hidden="true">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <hr class="section-divider-top"/>
+    <header class="section-header"><div class="inner">Hobbies & Interests</div></header>
+    <hr class="section-divider"/>
+    <p class="section-text bullet-dot">Hobby 1 — Photography.</p>
+    <p class="section-text bullet-dot">Hobby 2 — Cooking .</p>
+    <p class="section-text bullet-dot">Hobby 3 — Board Sport.</p>
 
     <hr class="section-divider-top"/>
     <header class="section-header"><div class="inner">Past Experiences</div></header>
     <hr class="section-divider"/>
     <p class="section-text bullet-dot">Real Estate Investment Analyst - Kimco Realty Corporation & Project Destined</p>
-    <p class="section-text bullet-dot">Makrketing Analyst — Restaurant BRand International.</p>
+    <p class="section-text bullet-dot">Makrketing Analyst — Restaurant Band International.</p>
     <p class="section-text bullet-dot">Real Estate Private Equity Analyst — The Meridian Group</p>
     
     <hr class="section-divider-top"/>
-    <header class="section-header"><div class="inner">Contact</div></header>
+    <header class="section-header centered"><div class="inner">Contact</div></header>
     <hr class="section-divider"/>
     <div class="contact-row">
       <a class="contact-link" href="https://www.linkedin.com/in/jyu03/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
@@ -96,6 +133,15 @@
         profileImgEl.addEventListener('mouseenter', stop);
         profileImgEl.addEventListener('mouseleave', start);
       }
+
+      // Animate progress bars on load
+      document.querySelectorAll('.progress-wrap').forEach((wrap, idx) => {
+        const percent = parseInt(wrap.getAttribute('data-progress') || '0', 10);
+        const bar = wrap.querySelector('.progress-bar');
+        setTimeout(() => {
+          bar.style.width = Math.max(0, Math.min(100, percent)) + '%';
+        }, idx * 150);
+      });
     });
   </script>
 </html>
