@@ -150,6 +150,20 @@ margin-top: 8px;
   vertical-align: middle;
   margin-left: 176px;
 }
+
+/* Past experiences: keep title left, date right (italic) */
+.past-experience {
+	display: flex;
+	align-items: center;
+}
+.past-experience .date-range {
+	margin-left: auto;
+	font-size: 20px;
+	font-family: Georgia, serif;
+	font-style: italic;
+	margin-right: 176px;
+	white-space: nowrap;
+}
 .bullet-dot::before {
   content: "";
   display: inline-block;
