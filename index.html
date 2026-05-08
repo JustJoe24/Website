@@ -166,6 +166,19 @@
           if (progress === 100) {
             // Clone the project and move it to completed section
             const clonedProject = project.cloneNode(true);
+            
+            // Remove the progress bar
+            const clonedProgressWrap = clonedProject.querySelector('.progress-wrap');
+            if (clonedProgressWrap) {
+              clonedProgressWrap.remove();
+            }
+            
+            // Add a result section
+            const resultSection = document.createElement('div');
+            resultSection.className = 'completion-result';
+            resultSection.innerHTML = '<p class="completion-text">✓ Completed</p>';
+            clonedProject.appendChild(resultSection);
+            
             completedContainer.appendChild(clonedProject);
             
             // Remove from original location
