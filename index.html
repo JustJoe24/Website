@@ -42,7 +42,7 @@
     </div>
     <div class="project">
       <p class="section-text bullet-dot">Project 3 — Marathon Training.</p>
-      <div class="progress-wrap" data-progress="70" aria-hidden="true">
+      <div class="progress-wrap" data-progress="100" aria-hidden="true">
         <div class="progress-bar"></div>
       </div>
     </div>
@@ -58,15 +58,22 @@
     </div>
     <div class="project">
       <p class="section-text bullet-dot">Learning 2 — Chess.</p>
-      <div class="progress-wrap" data-progress="15" aria-hidden="true">
+      <div class="progress-wrap" data-progress="17" aria-hidden="true">
         <div class="progress-bar"></div>
       </div>
     </div>
     <div class="project">
       <p class="section-text bullet-dot">Learning 3 — Bouldering.</p>
-      <div class="progress-wrap" data-progress="35" aria-hidden="true">
+      <div class="progress-wrap" data-progress="40" aria-hidden="true">
         <div class="progress-bar"></div>
       </div>
+    </div>
+
+    <hr class="section-divider-top"/>
+    <header class="section-header"><div class="inner">Completed Projects</div></header>
+    <hr class="section-divider"/>
+    <div id="completed-projects-container">
+      <!-- Completed items will be moved here -->
     </div>
 
     <hr class="section-divider-top"/>
@@ -142,6 +149,30 @@
           bar.style.width = Math.max(0, Math.min(100, percent)) + '%';
         }, idx * 150);
       });
+
+      // Move completed projects to Completed Projects section
+      moveCompletedProjects();
     });
+
+    function moveCompletedProjects() {
+      const completedContainer = document.getElementById('completed-projects-container');
+      const allProjects = document.querySelectorAll('.project');
+      
+      allProjects.forEach(project => {
+        const progressWrap = project.querySelector('.progress-wrap');
+        if (progressWrap) {
+          const progress = parseInt(progressWrap.getAttribute('data-progress') || '0', 10);
+          
+          if (progress === 100) {
+            // Clone the project and move it to completed section
+            const clonedProject = project.cloneNode(true);
+            completedContainer.appendChild(clonedProject);
+            
+            // Remove from original location
+            project.remove();
+          }
+        }
+      });
+    }
   </script>
 </html>
